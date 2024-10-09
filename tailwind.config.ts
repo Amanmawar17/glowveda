@@ -18,10 +18,10 @@ const config: Config = {
 				  "linear-gradient(252deg, #EAB5BF -14.16%, #F5EBE0 102.76%);",
 				  "gradient-to-234": "linear-gradient(234deg, #F5EAE3 -36.55%, rgba(245, 234, 227, 0.00) 122.42%);",
 				"gradient-to-90": "linear-gradient(234deg, #feada6 0%, #f5efef 100%);",
+				"gradient-to-80": "linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);",
 			  },
 			fontFamily: {
 				rubik: ['var(--font-rubik)', 'sans-serif'],
-				nunito: ['var(--font-nunito)', 'sans-serif'],
 				pt: ['var(--font-pt)', 'sans-serif'],
 			},
 			colors: {

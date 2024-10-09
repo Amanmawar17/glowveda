@@ -1,12 +1,12 @@
 "use client"
-import { CldImage } from 'next-cloudinary';
+
 import Link from 'next/link';
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Menu, User, ShoppingCart, ArrowDownToLine, Heart } from "lucide-react";
+import { Menu, User, ShoppingCart, Heart } from "lucide-react";
 import SideMenu from "./Menu";
-import logo from '../assets/icons/logo-color.svg'
+import logo from '../assets/icons/logo.webp'
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -39,68 +39,69 @@ export default function Navbar() {
   }, [isOpen]);
 
   return (
-    <nav className='bg-foreground'>
-      <div className="lg:pl-10 max-w-screen-2xl m-auto py-3 sm:py-6 sticky top-0 z-50 backdrop-blur-lg backdrop-filter">
-        <div className="flex flex-row justify-between items-center">
-          <div className="flex flex-row-reverse justify-between items-center px-5 shrink-0">
-            <Link href="/" className="flex flex-row-reverse items-center">
-              <CldImage
-                src="https://res.cloudinary.com/dckdognik/image/upload/v1725770289/glowveda/yg7lstsrrr7tsgxvplue.png"
-                alt="Logo"
-                height={180}
-                width={180}
-                quality={100}
-                priority
-                className="hidden sm:block"
-              />
-              <Image src={logo} alt="logo" width={32} height={32} className="w-8 sm:hidden" priority />
-            </Link>
-            <div className="grid place-content-center mr-4 lg:hidden">
-              <button onClick={handleclick} >
-                <Menu className='stroke-white'/>
-              </button>
-            </div>
-          </div>
-          <ul className="list-none hidden font-rubik lg:flex justify-center items-center text-2xl font-semibold w-full text-white">
+    <nav className='bg-background text-foreground'>
+      <div className="lg:px-10 max-w-screen-2xl m-auto py-3 sm:py-6 sticky top-0 z-50 backdrop-blur-lg backdrop-filter">
+        <div className='flex justify-between items-center'>
+          <ul className="list-none hidden font-rubik lg:flex justify-center items-center text-lg text-foreground gap-x-5">
             <li className="relative inline-block group hover:text-primary cursor-pointer">
-              <Link href="/health-plans" className={` ${pathname === '/' ? '' : ''}`}>
-                Women
+              <Link href="/mom&baby" className={` ${pathname === '/mom&baby' ? 'text-primary' : ''}`}>
+                Mom & Baby
               </Link>
               <span className="absolute left-1/2 -bottom-1 w-0 h-[2px] group-hover:bg-primary transition-all duration-300 ease-in-out group-hover:w-full group-hover:left-0"></span>
             </li>
-            <li className="relative inline-block group mx-14 hover:text-primary cursor-pointer">
-              <Link href="/store" className={` ${pathname === '/' ? '' : ''}`}>
+            <li className="relative inline-block group hover:text-primary cursor-pointer">
+              <Link href="/men" className={` ${pathname === '/men' ? 'text-primary' : ''}`}>
                 Men
               </Link>
               <span className="absolute left-1/2 -bottom-1 w-0 h-[2px] group-hover:bg-primary transition-all duration-300 ease-in-out group-hover:w-full group-hover:left-0"></span>
             </li>
             <li className="relative inline-block group hover:text-primary cursor-pointer">
-              <Link href="/blogs" className={` ${pathname === '/' ? '' : ''}`}>
+              <Link href="/wellness" className={` ${pathname === '/wellness' ? 'text-primary' : ''}`}>
+                Wellness
+              </Link>
+              <span className="absolute left-1/2 -bottom-1 w-0 h-[2px] group-hover:bg-primary transition-all duration-300 ease-in-out group-hover:w-full group-hover:left-0"></span>
+            </li>
+            <li className="relative inline-block group hover:text-primary cursor-pointer">
+              <Link href="/blogs" className={` ${pathname === '/blogs' ? 'text-primary' : ''}`}>
                 Blog
               </Link>
               <span className="absolute left-1/2 -bottom-1 w-0 h-[2px] group-hover:bg-primary transition-all duration-300 ease-in-out group-hover:w-full group-hover:left-0"></span>
             </li>
           </ul>
-          <ul className="flex justify-center items-center px-3 sm:px-5 gap-x-4 md:gap-x-8 shrink-0">
-            <li>
-              <button className="lg:outline outline-white outline-2 py-2 px-[3px] lg:px-4 rounded text-lg">
-                <span className="hidden lg:block font-nunito text-white">Get App</span>{" "}
-                <ArrowDownToLine className="block lg:hidden w-6 font-medium stroke-white" />
+          <div className='flex flex-row-reverse items-center'>
+            <Link href="/" className="">
+              <div className='flex flex-col items-center gap-y-1'>
+                <Image src={logo} alt="logo" width={48} height={48} className="w-14 hidden sm:block" priority />
+                <Image src={logo} alt="logo" width={32} height={32} className="w-8 sm:hidden" priority />
+                <p className='font-pt text-base hidden lg:block'>Glowveda</p>
+              </div>
+            </Link>
+            <div className="grid place-content-center mr-4 lg:hidden">
+              <button onClick={handleclick} >
+                <Menu className='stroke-foreground' />
               </button>
-            </li>
-            <li className="">
-              <Link href="/" className={` ${pathname === '/' ? '' : ''}`}>
-                <Heart className="h-6 w-6 stroke-white" />
+            </div>
+          </div>
+          <ul className="flex justify-center items-center px-3 sm:px-5 gap-x-4 md:gap-x-8 shrink-0">
+            <li className='relative inline-block group hover:text-primary cursor-pointer font-rubik text-lg'>
+              <Link href="/login" className={` ${pathname === '/login' ? 'text-primary' : ''}`}>
+                Login
+                <span className="absolute left-1/2 -bottom-1 w-0 h-[2px] group-hover:bg-primary transition-all duration-300 ease-in-out group-hover:w-full group-hover:left-0"></span>
               </Link>
             </li>
             <li className="">
               <Link href="/" className={` ${pathname === '/' ? '' : ''}`}>
-                <User className="h-6 w-6 stroke-white" />
+                <Heart className="h-6 w-6 stroke-foreground hover:stroke-primary" />
+              </Link>
+            </li>
+            <li className="">
+              <Link href="/" className={` ${pathname === '/' ? '' : ''}`}>
+                <User className="h-6 w-6 stroke-foreground hover:stroke-primary" />
               </Link>
             </li>
             <li>
               <Link href="/" className={` ${pathname === '/' ? '' : ''}`}>
-                <ShoppingCart className="h-6 w-6 stroke-white" />
+                <ShoppingCart className="h-6 w-6 stroke-foreground hover:stroke-primary" />
               </Link>
             </li>
           </ul>
@@ -118,3 +119,13 @@ export default function Navbar() {
     </nav>
   );
 }
+
+
+
+
+
+
+
+
+
+

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { Viewport } from "next";
-import { Rubik, PT_Serif, Nunito_Sans } from "next/font/google";
+import { Rubik, PT_Serif } from "next/font/google";
 import "./globals.css";
 
 const pt = PT_Serif({
@@ -11,11 +11,6 @@ const pt = PT_Serif({
 const rubik = Rubik({
   subsets: ["latin"],
   variable: "--font-rubik",
-  weight: "400",
-});
-const nunito = Nunito_Sans({
-  subsets: ["latin"],
-  variable: "--font-nunito",
   weight: "400",
 });
 export const viewport: Viewport = {
@@ -90,7 +85,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${pt.variable} ${rubik.variable} ${nunito.variable} scroll-smooth `}
+        className={`${pt.variable} ${rubik.variable} scroll-smooth `}
       >
         {children}
       </body>

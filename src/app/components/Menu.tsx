@@ -2,8 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { X } from "lucide-react";
-import { Profiles } from "@/data/data";
-import logo from '../assets/icons/logo-color.svg' 
+// import { Profiles } from "@/data/data";
+import logo from '../assets/icons/logo.webp' 
 
 interface MenuProps {
   closeSidebar: () => void;
@@ -55,24 +55,7 @@ export default function Sidebar({ closeSidebar }: MenuProps) {
         </li>
       </ul>
       <hr className="text-foreground/80 w-full my-2 lg:hidden" />
-      <ul className="lg:hidden p-3 text-foreground font-nunito">
-        {Profiles[0].profiles.map((i: string, index: number) => (
-          <li className="mb-2 text-base" key={index}>
-            <Link
-              href="/"
-              className={` ${pathname === '/' ? '' : ''} text-base`}
-              onClick={closeSidebar}
-            >
-              {i}
-            </Link>
-          </li>
-        ))}
-        <li className="" onClick={closeSidebar}>
-          <Link href="/" className="text-base">
-            Logout
-          </Link>
-        </li>
-      </ul>
+      
     </div>
   );
 };
